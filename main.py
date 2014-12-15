@@ -29,14 +29,17 @@ def getUWMPredictions(stop):
     tree = etree.parse(xmlFeed)
     root = tree.getroot()
     for child in root:
-        toPush = {
-                    'system': "University of Wisconsin-Milwaukee Parking & Transit",
-                    'route': str(child.attrib['routeTitle']),
-                    'minutes': 10,
-                    'stop_name': str(child.attrib['stopTitle']),
-                    'stop_num': stop
-                    }
-        times.append(toPush)
+            for direction in child:
+                for pred in direction:
+                    toPush = {
+                                'system': "University of Wisconsin-Milwaukee Parking & Transit",
+                                'route': str(child.attrib['routeTitle']) + " " + str(direction.attrib['title']),
+                                'minutes': int(pred.attrib['minutes']),
+                                'stop_name': str(child.attrib['stopTitle']),
+                                'stop_num': stop
+                                }
+                    times.append(toPush)
+    logging.info(times)
     return times
 
 def getMCTSPredictions(stops):
@@ -60,7 +63,7 @@ def getMCTSPredictions(stops):
                   'stop_num': int(child[3].text)
                   }
         times.append(toPush)
-    
+    logging.info(times)
     return times
 
 # Handler Classes
@@ -77,8 +80,7 @@ class StopHandler(webapp.RequestHandler):
         times = []
         for stop in stops:
             if stop['uwm_tag'] == requested_stop:
-                times += getUWMPredictions(stop['uwm_id'])
-                times += getMCTSPredictions(stop['mcts'])
+                times = getUWMPredictions(stop['uwm_id']) + getMCTSPredictions(stop['mcts'])
                 break
         times = sorted(times, key=lambda k: k['minutes']) 
         logging.info(times)
