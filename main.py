@@ -12,7 +12,8 @@ from datetime import timedelta
 
 # Keys and APIs
 mctsEndpoint = "http://realtime.ridemcts.com/bustime/api/v1/"
-mctsKey = ""
+###INSERT YOUR MCTS BUSTIME API KEY HERE###
+mctsKey = "Ay4655KsHwUjjkgaCU7v9twUb"
 uwmEndpoint = "https://api.uwm.edu/index.cfm/buses/"
 
 # Shared Functions

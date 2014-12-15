@@ -10,9 +10,11 @@ handlers:
  
 - url: /font
   static_dir: font
+  mime_type: application/font-sfnt
 
 - url: /ico
   static_dir: ico
+  mime_type: image/x-icon
   
 - url: /js
   static_dir: js
@@ -20,6 +22,7 @@ handlers:
 - url: /json
   static_dir: json
   application_readable: true
+  mime_type: application/json
  
 - url: /.*
   script: main.py
