@@ -18,9 +18,10 @@ uwmEndpoint = "https://api.uwm.edu/index.cfm/buses/"
 
 # Shared Functions
 def parseStops():
-    json_data = open('json/stops.json').read()
-    data = json.loads(json_data)["stops"]
-    return data
+    load_data = urllib2.urlopen("http://anthonyjesmok.com/uwm_stops.json")
+    json_data = load_data.read()
+    data = json.loads(json_data)
+    return data["stops"]
 
 def getUWMPredictions(stop):
     times = []

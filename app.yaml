@@ -18,11 +18,6 @@ handlers:
   
 - url: /js
   static_dir: js
-  
-- url: /json
-  static_dir: json
-  application_readable: true
-  mime_type: application/json
  
 - url: /.*
   script: main.py
