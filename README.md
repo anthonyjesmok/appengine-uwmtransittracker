@@ -19,7 +19,7 @@ APIs Used
 
 Stops.json
 -------
-You probably are wondering what that stops.json file contains. First of all, it has to be loaded remotely since App Engine does not like static text-based files too much. MORE COMING SOON.
+You probably are wondering what that stops.json file contains. First of all, it has to be loaded remotely since App Engine does not like static text-based files too much. Second, that file is hosted in the repo [appengine-uwmtransittracker-stopsjson](https://github.com/anthonyjesmok/appengine-uwmtransittracker-stopsjson "appengine-uwmtransittracker-stopsjson"). You can take a look and contribute if you would like!
 
 Production Site
 ---------
