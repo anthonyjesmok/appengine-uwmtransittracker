@@ -33,7 +33,7 @@ def getUWMPredictions(stop):
                 for pred in direction:
                     toPush = {
                                 'system': "University of Wisconsin-Milwaukee Parking & Transit",
-                                'route': str(child.attrib['routeTitle']) + " " + str(direction.attrib['title']),
+                                'route': str(child.attrib['routeTitle']) + " " + str(pred.attrib['dirTag']).title(),
                                 'minutes': int(pred.attrib['minutes']),
                                 'stop_name': str(child.attrib['stopTitle']),
                                 'stop_num': stop
@@ -51,7 +51,6 @@ def getMCTSPredictions(stops):
     root = tree.getroot()
     # Subtract 6 Hours for Central TIme
     now = datetime.datetime.now() - timedelta(hours=6)
-    
     for child in root:
         time_diff = datetime.datetime.strptime(child[9].text, "%Y%m%d %H:%M") - now
         minutes = int(time_diff.total_seconds() / 60)
