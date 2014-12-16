@@ -18,7 +18,7 @@ uwmEndpoint = "https://api.uwm.edu/index.cfm/buses/"
 
 # Shared Functions
 def parseStops():
-    load_data = urllib2.urlopen("http://anthonyjesmok.com/uwm_stops.json")
+    load_data = urllib2.urlopen("https://raw.githubusercontent.com/anthonyjesmok/appengine-uwmtransittracker-stopsjson/master/stops.json")
     json_data = load_data.read()
     data = json.loads(json_data)
     return data["stops"]
