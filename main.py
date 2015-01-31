@@ -10,11 +10,9 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from datetime import timedelta
 
-# Keys and APIs
-mctsEndpoint = "http://realtime.ridemcts.com/bustime/api/v1/"
-###INSERT YOUR MCTS BUSTIME API KEY HERE###
+###INSERT YOUR MCTS BUSTIME API KEY BELOW###
 mctsKey = ""
-uwmEndpoint = "https://api.uwm.edu/index.cfm/buses/"
+###INSERT YOUR MCTS BUSTIME API KEY ABOVE###
 
 # Shared Functions
 def parseStops():
