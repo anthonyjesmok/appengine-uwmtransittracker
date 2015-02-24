@@ -1,7 +1,7 @@
 <html>
     <head>
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <title>UWM Transit Tracker</title>
         <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon">
         <link rel="icon" href="ico/favicon.ico" type="image/x-icon">
@@ -10,13 +10,19 @@
         <header>
             <nav id="stops" class="grey darken-4">
                 <div class="container">
-                    <div class="nav-wrapper"><a href="/" class="brand-logo">UWM Transit Tracker</a>
-                        <ul id="nav-mobile" class="right side-nav">
+                    <div class="nav-wrapper">
+                        <a href="/" class="brand-logo">UWM Transit Tracker</a>
+                        <ul id="nav-mobile" class="right hide-on-small-only">
                             {% for stop in stops %}
                             <li><a href="/stop?id={{ stop.uwm_tag }}">{{ stop.title }}</a></li>
                             {% endfor %}
                         </ul>
-                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                        <ul id="slide-out" class="side-nav">
+                            {% for stop in stops %}
+                            <li><a href="/stop?id={{ stop.uwm_tag }}">{{ stop.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                     </div>
                 </div>
             </nav>
@@ -35,7 +41,7 @@
                             {% if time.minutes == 0 %}
                             <h5>Now</h5>
                             {% elif time.minutes < 3 %}
-                            <h5>Arriving Shortly</h5>
+                            <h5>Arriving</h5>
                             {% else %}
                             <h5>{{ time.minutes }} Minutes</h5>
                             {% endif %}
