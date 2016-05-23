@@ -1,3 +1,6 @@
+Important Note: Recently, the University of Wisconsin-Milwaukee discontinued their API for real-time shuttle tracking pending a complete renovation of the shuttle service. As a result, this project is no longer functional. This code will remain up on GitHub for viewing and critique, but the live site has been taken down.
+-----------
+
 UWM Transit Tracker
 ===========================
 I built this tool out of frustrations that myself and other students were having with our University's shuttle system. Many students started to take MCTS buses to and from campus instead of the shuttles, but could never make a sound decision which bus or shuttle to wait for or which stop to stand at. This can be a problem, especially in cold Wisconsin winters.
@@ -20,7 +23,3 @@ APIs Used
 Stops.json
 -------
 You probably are wondering what that stops.json file contains. First of all, it has to be loaded remotely since App Engine does not like static text-based files too much. Second, that file is hosted in the repo [appengine-uwmtransittracker-stopsjson](https://github.com/anthonyjesmok/appengine-uwmtransittracker-stopsjson "appengine-uwmtransittracker-stopsjson"). You can take a look and contribute if you would like!
-
-Production Site
----------
-I host a production site on Google App Engine with my MCTS BusTime API key for demo purposes, updating it occasionally with the latest code in this repo. [Click here to access it.](http://uwm-transit-tracker.appspot.com/ "UWM Transit Tracker")

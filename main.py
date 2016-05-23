@@ -47,7 +47,7 @@ def getMCTSPredictions(stops):
     tree = etree.parse(xmlFeed)
     root = tree.getroot()
     # Subtract 6 Hours for Central TIme
-    now = datetime.datetime.now() - timedelta(hours=6)
+    now = datetime.datetime.now() - timedelta(hours=5)
     for child in root:
         time_diff = datetime.datetime.strptime(child[10].text, "%Y%m%d %H:%M") - now
         minutes = int(time_diff.total_seconds() / 60)
